@@ -1,4 +1,4 @@
-# 2021-1_sexta_noite
+# 2021-1 - Sexta Noite - Turma 42
 Repositório da disciplina "Programação Avançada em Orientação à Objetos"
 
 ---
