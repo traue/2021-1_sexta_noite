@@ -9,7 +9,7 @@ Repositório da disciplina "Programação Avançada em Orientação à Objetos"
       - Abrir o terminal e digitar "java -version"
       - Não pode dar erro (tipo, comando não reconhecido)
       - Se der algum erro, baixar e instalar o java de: https://www.java.com
-<br>
+
   2. Baixar e instalar o Netbeans 8.2, com JDK
       - Link: [CLIQUE AQUI](https://drive.google.com/drive/u/1/folders/1C7avj8cxH5XjOsM9wOS3CgR8WY3jRCTS)
       - Baixar a versão correta para seu Sistema Operacional (32 ou 62bit)
