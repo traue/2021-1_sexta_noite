@@ -29,7 +29,7 @@ public class Http {
     public static Clima getClima(String cidade) {
         try {
             String url = "http://api.openweathermap.org/data/2.5/weather?";
-            String appid = "XXXX"; //COLE A SUA CHAVE DE API
+            String appid = ""; //COLE A SUA CHAVE DE API
             String units = "metric";
             String lang = "pt_br";
             String charset = StandardCharsets.UTF_8.name();
