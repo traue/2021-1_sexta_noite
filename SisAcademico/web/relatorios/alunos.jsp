@@ -1,10 +1,12 @@
+<%@page import="br.sisacademico.model.Aluno"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.sisacademico.dao.AlunoDAO"%>
 <%@page import="java.util.Map"%>
 <%@page import="br.sisacademico.model.Curso"%>
-<%@page import="br.sisacademico.dao.CursoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    CursoDAO cDAO = new CursoDAO();
-    Map<Curso, Integer> cursos = cDAO.getTodosCursosCountAlunos();
+    AlunoDAO aDAO = new AlunoDAO();
+    ArrayList<Aluno> alunos = aDAO.getTodosAlunos();
 %>
 <!DOCTYPE html>
 <html>
@@ -18,21 +20,21 @@
             <table class="table justify-content-center">
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col">RA</th>
+                        <th scope="col">Nome</th>
                         <th scope="col">Curso</th>
                         <th scope="col">Tipo de Curso</th>
-                        <th scope="col">Qtd. Alunos</th>
-                        <th scope="col">Ver Alunos</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(Map.Entry<Curso, Integer> c : cursos.entrySet()) { %>
+                    <% for(Aluno a : alunos) { %>
                     <tr>
-                        <td><%=c.getKey().getNomeCurso()%></td>
-                        <td><%=c.getKey().getTipoCurso()%></td>
-                        <td><%=c.getValue()%></td>
-                        <td>Bt. Ver Alunos</td>
+                        <td><%=a.getRa()%></td>
+                        <td><%=a.getNomeAluno()%></td>
+                        <td><%=a.getCurso().getNomeCurso()%></td>
+                        <td><%=a.getCurso().getTipoCurso()%></td>
                         <td>Bt. Editar</td>
                         <td>Bt. Excluir</td>
                     </tr>

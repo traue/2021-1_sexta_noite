@@ -14,7 +14,6 @@ public class Aluno {
         this.nomeAluno = nomeAluno;
         this.curso = curso;
     }
-    
         
     public int getIdAluno() {
         return idAluno;
