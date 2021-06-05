@@ -25,7 +25,7 @@
     </head>
     <body>
         <jsp:include page="../menu.jsp"></jsp:include>
-        
+        <script src="../js/modalExclusao.js"></script>
         <% if(mostraPainelFiltro && alunos.size() > 0) { %>
         <div class="card mt-4" style="width: 90%; margin: 0 auto;">
             <div class="card-header bg-dark">

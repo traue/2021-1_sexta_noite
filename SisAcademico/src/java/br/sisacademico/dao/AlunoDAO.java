@@ -2,6 +2,7 @@ package br.sisacademico.dao;
 
 import br.sisacademico.model.Aluno;
 import br.sisacademico.model.Curso;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -55,6 +56,23 @@ public class AlunoDAO {
         stm.getConnection().close();
         
         return alunos;
+    }
+    
+    public boolean deletarAluno(int idAluno) {
+        try {
+            String query = "DELETE FROM \"tb_aluno\" WHERE \"idAluno\" = ?";
+            
+            PreparedStatement stm = ConnectionFactory.getConnection().prepareStatement(query);
+            
+            stm.setInt(1, idAluno);
+            
+            stm.execute();
+            stm.getConnection().close();
+            
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }
