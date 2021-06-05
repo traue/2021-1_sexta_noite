@@ -14,6 +14,13 @@
     </head>
     <body>
         <jsp:include page="../menu.jsp"></jsp:include>
+        
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
+        
         <div class="container mt-4">
             <table class="table justify-content-center">
                 <thead class="thead-dark">
@@ -32,7 +39,15 @@
                         <td><%=c.getKey().getNomeCurso()%></td>
                         <td><%=c.getKey().getTipoCurso()%></td>
                         <td><%=c.getValue()%></td>
-                        <td>Bt. Ver Alunos</td>
+                        <% if(c.getValue() == 0) { %>
+                            <td>
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Sem alunos para exibir">
+                                    <button class="btn btn-secondary" disabled style="pointer-events: none;" type="button">Ver alunos</button>
+                                </span>
+                            </td>
+                        <% } else { %>
+                            <td><a href="./alunos.jsp?idCurso=<%=c.getKey().getIdCurso()%>" class="btn btn-success">Ver alunos</a></td>
+                        <% } %>
                         <td>Bt. Editar</td>
                         <td>Bt. Excluir</td>
                     </tr>

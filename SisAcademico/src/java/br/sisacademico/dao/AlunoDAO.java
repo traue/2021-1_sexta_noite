@@ -25,7 +25,7 @@ public class AlunoDAO {
                 + "INNER JOIN \"tb_curso\" ON \"tb_aluno\".\"idCurso\" = \"tb_curso\".\"idCurso\"";
 
         if (idCurso.length != 0) {
-            query += "WHERE \"tb_curso\".\"idCurso\" = " + idCurso[0];
+            query += " WHERE \"tb_curso\".\"idCurso\" = " + idCurso[0];
         }
 
         query += " ORDER BY \"nome\"";

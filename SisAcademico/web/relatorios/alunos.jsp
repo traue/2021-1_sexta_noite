@@ -6,7 +6,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     AlunoDAO aDAO = new AlunoDAO();
-    ArrayList<Aluno> alunos = aDAO.getTodosAlunos();
+    ArrayList<Aluno> alunos;
+    boolean mostraPainelFiltro = false;
+    
+    if(request.getParameter("idCurso") != null) {
+        int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+        alunos = aDAO.getTodosAlunos(idCurso);
+        mostraPainelFiltro = true;
+    } else {
+        alunos = aDAO.getTodosAlunos();
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -16,6 +25,19 @@
     </head>
     <body>
         <jsp:include page="../menu.jsp"></jsp:include>
+        
+        <% if(mostraPainelFiltro && alunos.size() > 0) { %>
+        <div class="card mt-4" style="width: 90%; margin: 0 auto;">
+            <div class="card-header bg-dark">
+                <p class="text-white">Filtro aplicado</p>
+            </div>
+            <div class="card-body">
+                <h6>Mostrando apenas alunos do curso: <strong><%= alunos.get(0).getCurso().getNomeCurso()%></strong></h6>
+                <a href="alunos.jsp" class="btn btn-primary">Limpar filtro</a>
+            </div>
+        </div>
+        <% } %>
+        
         <div class="container mt-4">
             <table class="table justify-content-center">
                 <thead class="thead-dark">
