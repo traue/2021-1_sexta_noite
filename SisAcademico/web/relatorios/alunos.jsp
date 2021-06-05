@@ -58,7 +58,7 @@
                         <td><%=a.getCurso().getNomeCurso()%></td>
                         <td><%=a.getCurso().getTipoCurso()%></td>
                         <td>Bt. Editar</td>
-                        <td>Bt. Excluir</td>
+                        <td><a id="deleteAluno" class="btn btn-danger" href="../AlunoController?tipoAcao=delete">Deletar</a></td>
                     </tr>
                     <% } %>
                 </tbody>

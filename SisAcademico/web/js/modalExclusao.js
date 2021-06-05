@@ -5,6 +5,7 @@ $(function () {
             const objDeletado = (e.target["id"] === "deleteAluno" ? "aluno" : "curso");
             bootbox.confirm({
                 centerVertical: true,
+                closeButton: false,
                 title: 'Deletar?',
                 message: 'Você realmenter quer <b>deletar</b> este ' + objDeletado,
                 buttons: {
