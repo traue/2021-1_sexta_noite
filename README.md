@@ -7,14 +7,14 @@ Repositório da disciplina "Programação Avançada em Orientação à Objetos"
 ## Links de Atividades:
 
  - [Atividade 1](https://forms.gle/rdVnbWcAtWyrHrVJ9) - De 30.04 até 14.05, 19h (encerrada)
- - [Atividade 2](https://forms.gle/ueS6UreGNCdSUrkD8) - De 07.05 até 11.06, 19h
- - [Atividade 3](https://forms.gle/es1VsTnV653dVfpZ6) - De 14.05 até 11.06, 19h
- - [Atividade 4](https://forms.gle/5UpZJBZdhxEHKcDLA) - De 21.05 até 11.06, 19h
- - [Atividade 5](https://forms.gle/1hZHqepxzwVaAFDV8) - De 28.05 até 11.06, 19h
- - [Atividade 6](https://forms.gle/3TfT5a65qK7iDsyc7) - De 04.06 até 11.06, 19h
+ - [Atividade 2](https://forms.gle/ueS6UreGNCdSUrkD8) - De 07.05 até 11.06, 19h (encerrada)
+ - [Atividade 3](https://forms.gle/es1VsTnV653dVfpZ6) - De 14.05 até 11.06, 19h (encerrada)
+ - [Atividade 4](https://forms.gle/5UpZJBZdhxEHKcDLA) - De 21.05 até 11.06, 19h (encerrada)
+ - [Atividade 5](https://forms.gle/1hZHqepxzwVaAFDV8) - De 28.05 até 11.06, 19h (encerrada)
+ - [Atividade 6](https://forms.gle/3TfT5a65qK7iDsyc7) - De 04.06 até 11.06, 19h (encerrada)
 
 
-Essas são todas as atividades da disciplina. Dica do tio: Não deixe para realizá-las na "última hora". 😉
+As atividades da disciplina já estão devidamente encerradas. ❤️
 
 
 ***
