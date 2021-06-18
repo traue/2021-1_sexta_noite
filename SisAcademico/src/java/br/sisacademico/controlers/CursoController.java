@@ -1,6 +1,6 @@
 package br.sisacademico.controlers;
 
-import br.sisacademico.dao.AlunoDAO;
+import br.sisacademico.dao.CursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,27 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AlunoController extends HttpServlet {
+public class CursoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
             String tipoAcao = request.getParameter("tipoAcao");
             
             if(tipoAcao.equalsIgnoreCase("delete")) {
-                int idAluno = Integer.parseInt(request.getParameter("idAluno"));
-                AlunoDAO aDAO = new AlunoDAO();
-                if(aDAO.deletarAluno(idAluno)) {
-                    if(Boolean.parseBoolean(request.getParameter("returnFilter"))) {
-                        int idCurso = Integer.parseInt(request.getParameter("idCurso"));
-                        response.sendRedirect("relatorios/alunos.jsp?idCurso=" + idCurso); 
-                    } else {
-                      response.sendRedirect("relatorios/alunos.jsp");  
-                    }
-                    
-                }
+                CursoDAO cDAO = new CursoDAO();
+                int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+                if(cDAO.deletarCurso(idCurso))
+                    response.sendRedirect("relatorios/cursos.jsp");
             }
         }
     }

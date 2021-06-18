@@ -1,7 +1,7 @@
 $(function () {
     $("a").click(function (e) {
         e.preventDefault();
-        if(e.target["id"] === "deleteAluno") {
+        if(e.target["id"] === "deleteAluno" || e.target["id"] === "deleteCurso") {
             const objDeletado = (e.target["id"] === "deleteAluno" ? "aluno" : "curso");
             bootbox.confirm({
                 centerVertical: true,

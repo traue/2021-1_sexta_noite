@@ -1,6 +1,7 @@
 package br.sisacademico.dao;
 
 import br.sisacademico.model.Curso;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -43,5 +44,18 @@ public class CursoDAO {
         stm.getConnection().close();
         
         return relatorio;
+    }
+    
+    public boolean deletarCurso(int idCurso) {
+        try {
+            String query = "DELETE FROM \"tb_curso\" WHERE \"idCurso\" = ?";
+            PreparedStatement stm = ConnectionFactory.getConnection().prepareStatement(query);
+            stm.setInt(1, idCurso);
+            stm.execute();
+            stm.getConnection().close();
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }

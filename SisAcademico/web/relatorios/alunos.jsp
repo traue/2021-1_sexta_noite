@@ -8,13 +8,16 @@
     AlunoDAO aDAO = new AlunoDAO();
     ArrayList<Aluno> alunos;
     boolean mostraPainelFiltro = false;
+    String returnPg;
     
     if(request.getParameter("idCurso") != null) {
         int idCurso = Integer.parseInt(request.getParameter("idCurso"));
         alunos = aDAO.getTodosAlunos(idCurso);
         mostraPainelFiltro = true;
+        returnPg = "&returnFilter=true&idCurso=" + idCurso;
     } else {
         alunos = aDAO.getTodosAlunos();
+        returnPg = "&returnFilter=false";
     }
 %>
 <!DOCTYPE html>
@@ -58,7 +61,7 @@
                         <td><%=a.getCurso().getNomeCurso()%></td>
                         <td><%=a.getCurso().getTipoCurso()%></td>
                         <td>Bt. Editar</td>
-                        <td><a id="deleteAluno" class="btn btn-danger" href="../AlunoController?tipoAcao=delete">Deletar</a></td>
+                        <td><a id="deleteAluno" class="btn btn-danger" href="../AlunoController?tipoAcao=delete&idAluno=<%=a.getIdAluno()%><%=returnPg%>">Deletar</a></td>
                     </tr>
                     <% } %>
                 </tbody>
