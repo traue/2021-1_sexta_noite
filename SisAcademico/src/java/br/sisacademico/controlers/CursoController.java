@@ -1,6 +1,7 @@
 package br.sisacademico.controlers;
 
 import br.sisacademico.dao.CursoDAO;
+import br.sisacademico.model.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ public class CursoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String tipoAcao = request.getParameter("tipoAcao");
             
@@ -21,7 +23,14 @@ public class CursoController extends HttpServlet {
                 int idCurso = Integer.parseInt(request.getParameter("idCurso"));
                 if(cDAO.deletarCurso(idCurso))
                     response.sendRedirect("relatorios/cursos.jsp");
-            }
+            } else if(tipoAcao.equalsIgnoreCase("cadastro")) {
+                CursoDAO cDAO = new CursoDAO();
+                String nomeCurso = request.getParameter("nomeCurso");
+                String tipoCurso = request.getParameter("tipoCurso");
+                Curso c = new Curso(0, nomeCurso, tipoCurso);
+                cDAO.insereCurso(c);
+                response.sendRedirect("relatorios/cursos.jsp");
+            } 
         }
     }
 

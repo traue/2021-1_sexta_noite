@@ -1,6 +1,8 @@
 package br.sisacademico.controlers;
 
 import br.sisacademico.dao.AlunoDAO;
+import br.sisacademico.model.Aluno;
+import br.sisacademico.model.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,21 +15,30 @@ public class AlunoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             String tipoAcao = request.getParameter("tipoAcao");
-            
-            if(tipoAcao.equalsIgnoreCase("delete")) {
+
+            if (tipoAcao.equalsIgnoreCase("delete")) {
                 int idAluno = Integer.parseInt(request.getParameter("idAluno"));
                 AlunoDAO aDAO = new AlunoDAO();
-                if(aDAO.deletarAluno(idAluno)) {
-                    if(Boolean.parseBoolean(request.getParameter("returnFilter"))) {
+                if (aDAO.deletarAluno(idAluno)) {
+                    if (Boolean.parseBoolean(request.getParameter("returnFilter"))) {
                         int idCurso = Integer.parseInt(request.getParameter("idCurso"));
-                        response.sendRedirect("relatorios/alunos.jsp?idCurso=" + idCurso); 
+                        response.sendRedirect("relatorios/alunos.jsp?idCurso=" + idCurso);
                     } else {
-                      response.sendRedirect("relatorios/alunos.jsp");  
+                        response.sendRedirect("relatorios/alunos.jsp");
                     }
-                    
+                }
+            } else if (tipoAcao.equalsIgnoreCase("cadastro")) {
+                AlunoDAO aDAO = new AlunoDAO();
+                Aluno a = new Aluno();
+                a.setNomeAluno(request.getParameter("nomeAluno"));
+                a.setRa(Integer.parseInt(request.getParameter("raAluno")));
+                a.setCurso(new Curso(Integer.parseInt(request.getParameter("idCurso")), null, null));
+                if (aDAO.insereAluno(a)) {
+                    response.sendRedirect("relatorios/alunos.jsp");
                 }
             }
         }

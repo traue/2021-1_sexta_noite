@@ -74,5 +74,21 @@ public class AlunoDAO {
             return false;
         }
     }
+    
+    public boolean insereAluno(Aluno aluno){
+        try {
+            String query = "INSERT INTO \"tb_aluno\" (\"ra\", \"nome\",\"idCurso\") VALUES (?, ?, ?)";
+            PreparedStatement stm = ConnectionFactory.getConnection().prepareStatement(query);
+
+            stm.setInt(1, aluno.getRa());
+            stm.setString(2, aluno.getNomeAluno());
+            stm.setInt(3, aluno.getCurso().getIdCurso());
+            stm.execute();
+            stm.getConnection().close();
+            return true;
+        }catch(Exception ex) {
+            return false;
+        }
+    }
 
 }

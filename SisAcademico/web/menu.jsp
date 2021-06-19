@@ -32,8 +32,8 @@
                             Cadastros
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Alunos</a>
-                            <a class="dropdown-item" href="#">Cursos</a>
+                            <a class="dropdown-item" href="<%=request.getContextPath()%>/cadastros/aluno.jsp">Alunos</a>
+                            <a class="dropdown-item" href="<%=request.getContextPath()%>/cadastros/curso.jsp">Cursos</a>
                         </div>
                     </li>
                 </ul>
